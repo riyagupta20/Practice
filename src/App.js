@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Cards from './Components/Cards';
 
-function App() {
+// Create a theme with spacing function
+const theme = createTheme({
+  spacing: (factor) => `${8 * factor}px`, // You can adjust the spacing factor according to your design
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Cards />
+      </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
